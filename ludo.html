@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.flaticon.com/free-icons/lounge">
+    <link rel="stylesheet" href="https://fontawesome.com/v4/icons/">
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+        }
+        #green{
+            background-color: green;
+        }
+        #red{
+            background-color: red;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #blue{
+            background-color: blue;
+        }
+        .fa{
+            font-size:30px;
+        }
+        #down{
+            color: green;
+        }
+        #right{
+            color:red;
+            border: none;
+            
+        }
+        #up{
+            color:blue;
+        }
+        #left{
+            color: yellow;
+        }
+        h1{
+            text-shadow: 3px 2px 3px red ;
+        }
+        #div1{
+            width: 360px;
+            height: 360px;
+            margin: 30px;
+            background-color: white;
+            border: 2px solid black;
+        }
+        .cir1{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background-color: red;
+            margin: 35px;
+            float: left;
+            border:2px solid black;
+        }
+        .cir2{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background-color: green;
+            margin: 35px;
+            float: left;
+            border:2px solid black;
+        }
+        .cir3{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background-color: blue;
+            margin: 35px;
+            float: left;
+            border:2px solid black;
+        }
+        .cir4{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background-color: yellow;
+            margin: 35px;
+            float: left;
+            border:2px solid black;
+        }
+        .dice{
+            position: relative;
+            width:100px;
+            height:100px;
+            transform-style: preserve-3d;
+            animation: rolling 6s;
+            transition: 1s ease;
+            margin-left:45px;
+        }
+        @keyframes rolling{
+            50%{
+                 transform: rotateX(455deg) rotateY(455deg);
+            }
+        }
+        .face{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid white;
+            border-radius: 20px;
+            background: linear-gradient(145deg,white,white);
+            transform-style: preserve-3d;
+        }
+        .face::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: white;
+            transform: translateZ(-1px);
+        }
+        .face::after{
+            content: '';
+            position: absolute;
+            left:50%;
+            top:50%;
+            width:18px;
+            height:18px;
+            background-color: black;
+            border-radius: 50%;
+
+        }
+        .front{
+            transform: translateZ(50px);
+        }
+        .back{
+            transform: rotateX(180deg) translateZ(50px);
+        }
+        .top{
+            transform:rotateX(90deg) translateZ(50px);
+        }
+        .bottom{
+            transform:rotateX(-90deg) translateZ(50px);
+        }
+        .right{
+            transform:rotateY(90deg) translateZ(50px);
+        }
+        .left{
+            transform:rotateY(-90deg) translateZ(50px);
+        }
+        .front::after{
+            width:30px;
+            height:30px;
+            background: black;
+            margin: -15px 0 0 -15px;
+        }
+        .back::after{
+           margin:-35px 0 0 -30px;
+            box-shadow: 40px 0,0 25px,40px 25px, 0 50px,40px 50px;
+        }
+        .top::after{
+           margin: -30px 0 0 -30px; 
+           box-shadow: 40px 40px;
+        }
+        .bottom::after{
+            margin: -36px 0 0 -36px;
+            box-shadow: 26px 26px,52px 52px,52px 0,0 52px;
+        }
+        .right::after{
+            margin:-30px 0 0 -30px;
+            box-shadow: 40px 0,0 40px,40px 40px;
+        }
+        .left::after{
+            margin:-35 0 0 -35px;
+            box-shadow: 25px 25px,-30px -30px;
+        }
+        .roll{
+           color:black;
+           margin-top: 50px;
+           padding:2px 12px;
+           border-radius: 3px;
+           font-size:16px;
+           font-weight: 600; 
+           border:2px solid black;
+           cursor: pointer;
+           margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+  <center><h1>LUDO TALENT</h1></center>  
+  <table border="5" cellspacing="0" cellpadding="40px" align="center">
+    <tr >
+        <td colspan="6" rowspan="6" style="background-color: red;"><div id="div1"><div class="cir1"></div><div class="cir1"></div><div class="cir1"></div><div class="cir1"></div></div></td>
+        <td></td>
+        <td class="fa fa-arrow-down" id="down"></td>
+        <td></td>
+        <td colspan="6" rowspan="6" style="background-color: green;"><div id="div1"><div class="cir2"></div><div class="cir2"></div><div class="cir2"></div><div class="cir2"></div></div></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td id="green"></td>
+        <td id="green"></td>
+    </tr>
+   <tr>
+    <td></td>
+    <td id="green"></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td id="green"></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td id="green"></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td id="green"></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td id="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="3" rowspan="3" style="background-image: repeating-conic-gradient( from 45deg,yellow 0deg 90deg,blue 90deg 180deg, red 180deg 270deg,green 270deg 360deg);"><div class="dice">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+    </div>
+    <br>
+    <button class="roll"><h2>Click Here</h2></button>
+    <script>
+        const dice=document.querySelector('.dice');
+        const rollbtn=document.querySelector('.roll');
+
+   const randomDice = () =>{
+    const random=Math.floor(Math.random()*10);
+    if(random>=1&& random<=6)
+    {
+        rollDice(random);
+    }
+    else{
+        randomDice();
+    }
+   }
+    const rollDice=random =>{
+        dice.style.animation='rolling 4s';
+        setTimeout(() =>{
+            switch(random){
+                case 1:dice.style.transform='rotateX(0deg) rotateY(0deg)';
+                break;
+                case 6:dice.style.transform='rotateX(180deg) rotateY(0deg)';
+                break;
+                case 2:dice.style.transform='rotateX(-90deg) rotateY(0deg)';
+                break;
+                case 5:dice.style.transform='rotateX(90deg) rotateY(0deg)';
+                break;
+                case 3:dice.style.transform='rotateX(0deg) rotateY(90deg)';
+                break;
+                case 4:dice.style.transform='rotateX(0deg) rotateY(-90deg)';
+                break;
+
+
+                default:break;
+            }
+            dice.style.animation='none';
+
+        },1000)
+    }
+        rollbtn.addEventListener('click',randomDice);
+    </script>
+</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td class="fa fa-arrow-right" id="right" ></td>
+    <td id="red"></td>
+    <td id="red"></td>
+    <td id="red"></td>
+    <td id="red"></td>
+    <td id="red"></td>
+    <td id="yellow"></td>
+    <td id="yellow"></td>
+    <td id="yellow"></td>
+    <td id="yellow"></td>
+    <td id="yellow"></td>
+    <td class="fa fa-arrow-left" id="left"></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td id="yellow"></td>
+    <td></td>
+   </tr>
+   <tr >
+    <td colspan="6" rowspan="6" style="background-color: blue;"><div id="div1"><div class="cir3"></div><div class="cir3"></div><div class="cir3"></div><div class="cir3"></div></div></td>
+    <td></td>
+    <td id="blue"></td>
+    <td></td>
+    <td colspan="6" rowspan="6" style="background-color: yellow;"><div id="div1"><div class="cir4"></div><div class="cir4"></div><div class="cir4"></div><div class="cir4"></div></div></td>
+</tr>
+<tr>
+    <td></td>
+    <td id="blue"></td>
+    <td></td>
+</tr>
+<tr>
+<td></td>
+<td id="blue"></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td id="blue"></td>
+<td></td>
+</tr>
+<tr>
+<td id="blue"></td>
+<td id="blue"></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td class="fa fa-arrow-up" id="up"></td>
+<td></td>
+</tr>
+  </table>
+</body>
+</html>
